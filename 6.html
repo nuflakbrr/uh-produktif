@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomer 6</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Membuat Array Random Sesuai Input Angka 1, Dan Menjumlahkan 2 Angka di dalam Array Apakah Menghasilkan Angka 2</h2>
+    </div>
+
+    <form class="container">
+        <label for="angka">Masukkan Angka 1</label>
+        <input type="number" name="angka1" id="angka1">
+        
+        <label for="angka">Masukkan Angka 2</label>
+        <input type="number" name="angka2" id="angka2">
+
+        <button type="submit">Hitung!</button>
+    </form>
+
+    <div class="container">
+        <h2 style="margin-bottom: -20px;">Hasil</h2>
+        <p id="arr"></p>
+        <p id="hasil"></p>
+    </div>
+
+    <script>
+        // Akan diberikan dua angka, N dan K.
+        // Dan akan diberikan array dengan panjang N.
+        // Silahkan tentukan apakah bisa mendapatkan nilai K dengan menjumlahkan 2 angka
+        // dari array yang diberikan.
+        document.querySelector('form').addEventListener('submit', function(e){
+            e.preventDefault();
+            var angka1 = document.querySelector('#angka1').value;
+            var angka2 = document.querySelector('#angka2').value;
+            
+            var arrAngka = [];
+            for(var i = 0; i < angka1; i++){
+                arrAngka.push(Math.floor(Math.random() * 5));
+            }
+
+            // belum menemukan cara untuk mengambil 2 angka di dalam array dan dijumlahkan agar menghasilkan angka2
+            var hasil = 0;
+            for(var j = 0; j < arrAngka.length; j++){
+                hasil += arrAngka[j];
+            }
+            if(hasil == angka2){
+                document.getElementById('hasil').innerHTML = `Angka Random : ${arrAngka} <br> Bisa`;
+            }else{
+                document.getElementById('hasil').innerHTML = `Angka Random : ${arrAngka} <br> Tidak Bisa`;
+            }
+
+            // document.querySelector('#arr').innerHTML = `Array Random : [${arrAngka}]`;
+        });
+    </script>
+</body>
+</html>

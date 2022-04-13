@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomer 3</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Penjumlahan Angka 1 Sampai N</h2>
+    </div>
+
+    <form class="container">
+        <label for="angka">Masukkan Angka</label>
+        <input type="number" name="angka" id="angka">
+
+        <button type="submit">Hitung!</button>
+    </form>
+
+    <div class="container">
+        <h2 style="margin-bottom: -20px;">Hasil</h2>
+        <p id="hasil"></p>
+    </div>
+
+    <script>
+        // Akan diberikan sebuah angka. sebut saja angka ini N.
+        // Hitunglah total penjumlahan dari angka 1 – N.
+        document.querySelector('form').addEventListener('submit', function(e){
+            e.preventDefault();
+            var angka = document.querySelector('#angka').value;
+
+            var total = 0;
+            for(var i = 1; i <= angka; i++){
+                total += i;
+            }
+
+            document.getElementById('hasil').innerHTML = `Total dari penjumlahan 1 sampai ${angka} adalah ${total}`;
+        });
+    </script>
+</body>
+</html>

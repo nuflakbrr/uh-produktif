@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomer 5</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Menghasilkan Angka Random Sesuai N, Dan Mendefinisikan Angka Tertinggi</h2>
+    </div>
+
+    <form class="container">
+        <label for="angka">Masukkan Angka</label>
+        <input type="number" name="angka" id="angka">
+
+        <button type="submit">Hitung!</button>
+    </form>
+
+    <div class="container">
+        <h2 style="margin-bottom: -20px;">Hasil</h2>
+        <p id="hasil"></p>
+    </div>
+
+    <script>
+        // Akan diberikan sebuah angka N.
+        // Dan akan diberikan N angka.
+        // Silahkan tentukan nilai maksimum dari bilangan tersebut.
+        document.querySelector('form').addEventListener('submit', function(e){
+            e.preventDefault();
+            var angka = document.querySelector('#angka').value;
+
+            var angkaRandom = [];
+            var angkaTertinggi = 0;
+
+            for(var i = 0; i < angka; i++){
+                angkaRandom.push(Math.floor(Math.random() * 100) + 1);
+            }
+
+            for(var j = 0; j < angkaRandom.length; j++){
+                if(angkaRandom[j] > angkaTertinggi){
+                    angkaTertinggi = angkaRandom[j];
+                }
+            }
+
+            document.getElementById('hasil').innerHTML = `Angka Random : ${angkaRandom} <br> Angka Tertinggi : ${angkaTertinggi}`;
+        });
+    </script>
+</body>
+</html>

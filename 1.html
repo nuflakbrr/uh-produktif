@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomer 1</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Perbandingan Angka</h2>
+    </div>
+
+    <form class="container">
+        <label for="angka1">Angka 1</label>
+        <input type="number" name="angka1" id="angka1">
+        
+        <label for="angka2">Angka 2</label>
+        <input type="number" name="angka2" id="angka2">
+
+        <button type="submit">Bandingkan!</button>
+    </form>
+
+    <div class="container">
+        <h2 style="margin-bottom: -20px;">Hasil</h2>
+        <p id="hasil"></p>
+    </div>
+
+    <script>
+        // Akan diberikan dua angka, silahkan tentukan angka mana yang lebih besar
+        document.querySelector('form').addEventListener('submit', function(e){
+            e.preventDefault();
+            var angka1 = document.querySelector('#angka1').value;
+            var angka2 = document.querySelector('#angka2').value;
+
+            if(angka1 > angka2){
+                document.getElementById('hasil').innerHTML = `Angka ${angka1} lebih besar dari angka ${angka2}`;
+            }else if(angka1 < angka2){
+                document.getElementById('hasil').innerHTML = `Angka ${angka2} lebih besar dari angka ${angka1}`;
+            }else{
+                document.getElementById('hasil').innerHTML = `Angka ${angka1} sama dengan angka ${angka2}`;
+            }
+        });
+    </script>
+</body>
+</html>
